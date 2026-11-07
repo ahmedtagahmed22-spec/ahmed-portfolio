@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تطبيقاتي | أحمد تاج الدين</title>
+<meta name="description" content="تطبيقات الويب التي طوّرها أحمد تاج الدين في مجال تصميم الأسنان الرقمي.">
+<meta name="theme-color" content="#060913">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦷</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#060913;--card:#0f172a;--tx:#f8fafc;--mu:#94a3b8;--ac:#00f2fe;--ac2:#4facfe;--bd:rgba(0,242,254,.15);--sh:0 12px 30px -10px rgba(0,242,254,.25)}
+[data-theme=light]{--bg:#f4f9ff;--card:#fff;--tx:#0f172a;--mu:#475569;--ac:#0072ff;--ac2:#00b4d8;--bd:#d6e6fa;--sh:0 10px 30px rgba(0,114,255,.13)}
+[data-theme=light] .p{color:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Cairo,sans-serif;background:var(--bg);color:var(--tx);line-height:1.8;overflow-x:hidden;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.w{width:min(100% - 40px,1120px);margin-inline:auto}
+.k{color:var(--ac);font-weight:700;font-size:.85rem;letter-spacing:.04em}
+h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900;line-height:1.3;margin:4px 0 8px}
+.g{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--mu);max-width:600px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:.25s}
+.p{background:linear-gradient(135deg,var(--ac),#0072ff);color:#0a0f1d;box-shadow:0 8px 22px rgba(0,242,254,.35)}.p:hover{transform:translateY(-2px)}
+.o{border:1.5px solid var(--ac);color:var(--ac)}.o:hover{background:var(--ac);color:#0a0f1d}
+header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.1rem}.logo img{height:38px;width:auto}.logo b{color:var(--ac)}
+nav.m{display:flex;gap:20px;font-weight:600;font-size:.88rem;color:var(--mu)}nav.m a:hover,nav.m a.on{color:var(--ac)}
+.ic{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--card);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem}
+.tools{display:flex;gap:8px;align-items:center}#bg{display:none}
+.hero{padding:64px 0 36px;background:radial-gradient(520px 320px at 80% 0%,rgba(0,114,255,.25),transparent 70%)}
+.note{display:flex;gap:12px;align-items:flex-start;background:rgba(0,242,254,.07);border:1px solid var(--bd);border-radius:18px;padding:16px 20px;margin-top:24px;color:var(--mu);font-size:.9rem}
+.note i{color:var(--ac);margin-top:5px}
+.filterbar{display:flex;gap:9px;flex-wrap:wrap;margin:30px 0 24px}
+.filterbar button{border:1px solid var(--bd);border-radius:999px;padding:7px 16px;color:var(--mu);font-weight:700;font-size:.82rem}
+.filterbar button.active,.filterbar button:hover{background:rgba(0,242,254,.12);color:var(--ac);border-color:var(--ac)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;padding-bottom:70px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.3s}
+.c:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--ac2)}
+.c .im{aspect-ratio:16/10;background:radial-gradient(circle at 50% 45%,rgba(0,242,254,.16),rgba(4,12,28,.96) 68%);border-bottom:1px solid var(--bd)}
+.c .im img{width:100%;height:100%;object-fit:cover}
+.c .t{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.c small{color:var(--ac);font-weight:700}
+.c h3{font-size:1.1rem;font-weight:800}
+.c p{color:var(--mu);font-size:.9rem;flex:1}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--mu);margin:6px 0 10px}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:#facc15}
+.st.live::before{background:#22c55e}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tags span{font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:99px;border:1px solid var(--bd);color:var(--ac)}
+.back{text-align:center;padding-bottom:70px}
+footer{border-top:1px solid var(--bd);padding:34px 0;text-align:center;color:var(--mu);font-size:.85rem}footer .logo{justify-content:center;margin-bottom:6px;color:var(--tx)}
+#up{position:fixed;bottom:20px;inset-inline-end:20px;width:44px;height:44px;border-radius:50%;background:var(--ac);color:#0a0f1d;display:none;align-items:center;justify-content:center;box-shadow:var(--sh);z-index:30}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+@media(max-width:900px){nav.m{display:none;position:absolute;top:68px;inset-inline:0;background:var(--card);flex-direction:column;padding:12px 24px;gap:6px;border-bottom:1px solid var(--bd)}nav.m.open{display:flex}nav.m a{padding:8px 0}#bg{display:inline-flex}}
+@media(max-width:600px){.hero{padding:44px 0 20px}.cards{grid-template-columns:minmax(0,1fr)}.back .btn{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="w nb">
+<a href="index.html#home" class="logo"><img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'"><span>Ahmed <b>Tag Aldein</b></span></a>
+<nav class="m" id="nav">
+<a href="index.html#home">الرئيسية</a><a href="index.html#services">الخدمات</a><a href="index.html#about">من أنا؟</a><a href="index.html#work">أعمالي</a><a href="projects.html" class="on">تطبيقاتي</a><a href="index.html#certs">الشهادات</a><a href="index.html#contact">تواصل معي</a>
+</nav>
+<div class="tools"><button class="ic" id="th" aria-label="Theme"><i class="fa-solid fa-moon"></i></button><button class="ic" id="bg" aria-label="Menu"><i class="fa-solid fa-bars"></i></button></div>
+</div></header>
+
+<section class="hero"><div class="w">
+<span class="k">معرض التطبيقات</span>
+<h1><span class="g">تطبيقاتي الرقمية</span></h1>
+<p class="sub">أدوات وتطبيقات ويب طوّرتها لتسهّل العمل في مجال تصميم الأسنان الرقمي. جرّبها مباشرة من هنا.</p>
+<div class="note"><i class="fa-solid fa-circle-info"></i><span>بعض التطبيقات قد تكون قيد التطوير والتجربة. إذا واجهتك مشكلة أو عندك اقتراح، تواصل معي.</span></div>
+<div class="filterbar" id="filters"></div>
+</div></section>
+
+<div class="w"><div class="cards" id="apps"></div>
+<div class="back"><a href="index.html#work" class="btn o"><i class="fa-solid fa-arrow-right"></i> العودة إلى الصفحة الرئيسية</a></div></div>
+
+<footer><div class="w"><a href="index.html#home" class="logo"><img src="assets/logo.png" alt="Logo" onerror="this.style.display='none'"><span>Ahmed <b>Tag Aldein</b></span></a><p>© 2026 أحمد تاج الدين – جميع الحقوق محفوظة.</p></div></footer>
+<button id="up" aria-label="Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+/* ===== عدّل قائمة التطبيقات من هنا فقط =====
+   type: تصنيف للفلتر | img: صورة المعاينة | live: true لو التطبيق جاهز، false لو قيد التطوير
+   url: رابط التطبيق | btn: نص الزر | tags: كلمات صغيرة تحت الوصف */
+const APPS=[
+ {type:'تطبيق ويب',title:'Exocad Ahmed Academy',desc:'An interactive educational platform for learning exocad and digital dentistry through lessons, quizzes, and specialized dental resources.',img:'assets/apps/app1.png',live:true,url:'https://ahmedtagahmed22-spec.github.io/Exocad-Ahmed-academy-TD/#app',btn:'جرّب التطبيق',tags:['exocad','Web App']},
+ {type:'أداة',title:'اسم تطبيقك الثاني',desc:'وصف مختصر عن التطبيق الثاني.',img:'assets/apps/app2.png',live:false,url:'https://ahmedtagahmed22-spec.github.io/Exocad-Ahmed-academy-TD/',btn:'استكشف المشروع',tags:['CAD/CAM']}
+];
+
+const grid=document.getElementById('apps'),fb=document.getElementById('filters');
+function render(f='all'){
+ grid.innerHTML=APPS.filter(a=>f==='all'||a.type===f).map(a=>`
+ <article class="c">
+  <div class="im"><img src="${a.img}" alt="${a.title}" loading="lazy" onerror="this.src='https://placehold.co/800x500/0a0f1d/00f2fe?text=App'"></div>
+  <div class="t">
+   <small>${a.type}</small>
+   <h3>${a.title}</h3>
+   <p>${a.desc}</p>
+   <div class="tags">${(a.tags||[]).map(t=>`<span>${t}</span>`).join('')}</div>
+   <span class="st ${a.live?'live':''}">${a.live?'متاح الآن':'قيد التطوير'}</span>
+   <a class="btn p" href="${a.url}" target="_blank" rel="noopener">${a.btn} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+  </div>
+ </article>`).join('');
+}
+const types=['all',...new Set(APPS.map(a=>a.type))];
+fb.innerHTML=types.map((t,i)=>`<button data-f="${t}" class="${i?'':'active'}">${t==='all'?'الكل':t}</button>`).join('');
+fb.onclick=e=>{const b=e.target.closest('button');if(!b)return;fb.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.f)};
+render();
+
+/* theme + menu + top button */
+const root=document.documentElement,th=document.getElementById('th');
+function setTheme(t){root.dataset.theme=t;th.innerHTML=t==='dark'?'<i class="fa-solid fa-moon"></i>':'<i class="fa-solid fa-sun"></i>';try{localStorage.setItem('theme',t)}catch(e){}}
+let saved='dark';try{saved=localStorage.getItem('theme')||'dark'}catch(e){}
+setTheme(saved);
+th.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+document.getElementById('bg').onclick=()=>document.getElementById('nav').classList.toggle('open');
+const up=document.getElementById('up');
+addEventListener('scroll',()=>up.style.display=scrollY>400?'flex':'none');
+up.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body></html>

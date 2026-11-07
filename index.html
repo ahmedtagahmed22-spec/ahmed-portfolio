@@ -483,8 +483,8 @@ img, iframe, canvas {
 <div class="ch"><span>exocad</span><span>CAD/CAM</span><span>DSD</span><span>Zirconia</span></div>
 </div></div></section>
 <section id="work" class="alt"><div class="w">
-<div class="head"><span class="k" data-i="wk">أعمالي ومشاريعي</span><h2 data-i="wt">معرض تصميمات الأسنان ثلاثية الأبعاد</h2><p class="sub" data-i="wp">استعرض النموذج التوضيحي الآن، ويمكن استبداله لاحقاً بنماذج حالاتك الحقيقية بصيغ STL أو GLB.</p></div>
-<div class="filterbar" id="filters"><button class="active" data-filter="all">الكل</button><button data-filter="crown">Crown &amp; Bridge</button><button data-filter="implant">Implant</button><button data-filter="smile">Smile Design</button><button data-filter="full">Full Arch</button></div>
+<div class="head"><span class="k" data-i="wk">أعمالي ومشاريعي</span><h2 data-i="wt">معرض تصميمات الأسنان ثلاثية الأبعاد</h2><p class="sub" data-i="wp">حالات حقيقية صممتها ببرنامج exocad، تقدر تستعرضها وتتحكم فيها مباشرة من هنا.</p></div>
+
 <div class="cards gal" id="gal" data-collapsed="true">
 <article class="c" data-category="smile">
   <div class="model-preview" style="height:340px">
@@ -747,5 +747,59 @@ document.querySelectorAll('.fi button').forEach(b=>b.onclick=()=>b.parentElement
 const up=document.getElementById('up');
 addEventListener('scroll',()=>up.style.display=scrollY>400?'flex':'none');
 up.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+  // ===== الترجمة =====
+const LANG_EN={
+n1:'Home',n2:'Services',n3:'About',n4:'Work',n5:'Certificates',n6:'FAQ',n7:'Contact',
+kick:'Digital Dentistry • CAD/CAM • exocad',
+tag:'Simpler design, more precise smile.',
+hp:'High-precision digital dental designs that help clinics and labs deliver restorations to the required aesthetic and functional standards.',
+b1:'About me',b2:'View my work',
+svk:'What I offer',svt:'Digital design with higher precision',svp:'Organized design services that help deliver each case with quality and speed.',
+s1:"3D smile planning and design that matches facial features and the patient's expectations.",
+s2:'Design of crowns and bridges (Zirconia, E-max, Veneers) with fine detail.',
+s3:'Surgical guide design for dental implants to ensure accurate position and angulation.',
+abk:'A short intro',abt:'Welcome to my world!',
+ab1:"I'm Ahmed Tag Aldein, a dental technician and digital designer working with clinics and labs, turning intraoral scans into precise 3D designs ready for printing and milling.",
+wk:'My work & projects',wt:'3D dental design gallery',
+wp:'Real cases I designed in exocad. Explore and rotate them right here.',
+cek:'My certificates',cet:'My learning and growth journey',
+cep:"Certificates and courses I've earned, with verification links.",
+fqk:'FAQ',fqt:'Have a question? The answer is here.',
+q1:'Which files are required to send a case?',a1:'STL or PLY intraoral scan files along with diagnostic photos of the case.',
+q2:'How long does delivery take?',a2:'Delivery time is set after reviewing the case type, its complexity and the required files.',
+q3:'Can the design follow specific requirements?',a3:'Yes, the restoration type, material and details can be discussed before work starts.',
+q4:'How do I request a service?',a4:'Contact me through the channels in the Contact section to discuss the case.',
+ctk:'Contact',ctt:"Have a case? Let's get started",ctp:'For inquiries and to discuss case files and design requirements.',
+ft:'© 2026 Ahmed Tag Aldein – All rights reserved.'
+};
+const i18n=document.querySelectorAll('[data-i]');
+const AR={};i18n.forEach(e=>AR[e.dataset.i]=e.textContent);
+const lg=document.getElementById('lg');
+let lang='ar';
+
+function localizeDyn(){
+  const en=lang==='en';
+  const ex=certToggle.dataset.expanded==='true';
+  certToggle.textContent=en?(ex?'Hide certificates':'Show all certificates'):(ex?'إخفاء الشهادات':'عرض جميع الشهادات');
+  const cx=caseToggle.dataset.expanded==='true';
+  caseToggle.textContent=en?(cx?'Hide cases':'Show all cases'):(cx?'إخفاء الحالات':'عرض جميع الحالات');
+  document.querySelectorAll('.cert a').forEach(a=>a.textContent=en?'Verify ↗':'رابط التحقق ↗');
+}
+const _rc=renderCertificates;
+renderCertificates=function(s){_rc(s);localizeDyn();};
+caseToggle.addEventListener('click',localizeDyn);
+
+function setLang(l){
+  lang=l;const en=l==='en';
+  document.documentElement.lang=l;
+  document.documentElement.dir=en?'ltr':'rtl';
+  i18n.forEach(e=>{e.textContent=en?LANG_EN[e.dataset.i]:AR[e.dataset.i]});
+  lg.textContent=en?'AR':'EN';
+  localizeDyn();
+  try{localStorage.setItem('lang',l)}catch(x){}
+}
+lg.onclick=()=>setLang(lang==='ar'?'en':'ar');
+let savedLang='ar';
+try{savedLang=
 </script>
 </body></html>

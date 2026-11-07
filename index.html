@@ -801,6 +801,7 @@ function setLang(l){
 }
 lg.onclick=()=>setLang(lang==='ar'?'en':'ar');
 let savedLang='ar';
-try{savedLang=
+try{savedLang=localStorage.getItem('lang')||'ar'}catch(x){}
+if(savedLang==='en')setLang('en');
 </script>
 </body></html>

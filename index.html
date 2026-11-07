@@ -807,5 +807,13 @@ lg.onclick=()=>setLang(lang==='ar'?'en':'ar');
 let savedLang='ar';
 try{savedLang=localStorage.getItem('lang')||'ar'}catch(x){}
 if(savedLang==='en')setLang('en');
+  // تكبير صورة الشهادة
+const lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+document.addEventListener('click',e=>{
+  const img=e.target.closest('.cert img');
+  if(img){lbi.src=img.src;lbi.alt=img.alt;lb.style.display='flex';}
+});
+lb.onclick=()=>lb.style.display='none';
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.style.display='none'});
 </script>
 </body></html>

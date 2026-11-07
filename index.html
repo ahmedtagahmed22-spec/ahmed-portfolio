@@ -619,8 +619,8 @@ img, iframe, canvas {
 </div></div>
 <script>
 const CERTS=[
-['Exocad for Beginners: Tools and Workflow','Institute of Digital Dentistry','November 2, 2026','https://academy.instituteofdigitaldentistry.com/certificates/course-certificate-idd-2025-01-00/?course_id=575&cert-nonce=866b78a136','assets/certs/cert1.png'],
-['Modern Prep Design and Margination','Institute of Digital Dentistry','November 2, 2026','https://academy.instituteofdigitaldentistry.com/certificates/course-certificate-idd-2025-01-00/?course_id=587&cert-nonce=f3d3e4c3a7','assets/certs/cert2.png'],
+['Exocad for Beginners: Tools and Workflow','Institute of Digital Dentistry','November 2, 2026','','assets/certs/cert1.png'],
+['Modern Prep Design and Margination','Institute of Digital Dentistry','November 2, 2026','','assets/certs/cert2.png'],
 ['أساسيات صناعة تكنولوجيا الأسنان','Jordan University of Science and Technology','September 2, 2026','https://www.coursera.org/account/accomplishments/verify/N2T4LONN26AQ','assets/certs/cert3.png'],
 ['Making Porcelain Teeth','منصة معارف','August 27, 2026','https://www.m3aarf.com/profile/certificate/c2a04ad5','assets/certs/cert4.png'],
 ['The Integration of Art and Science in Modern Dental Medicine','University of Pennsylvania','August 9, 2025','https://www.coursera.org/account/accomplishments/specialization/CC8T4U3S0ED0','assets/certs/cert5.png'],
@@ -644,7 +644,7 @@ certGrid.innerHTML=visible.map(c=>`
 <img src="${c[4]}" alt="${c[0]}">
 <h3>${c[0]}</h3>
 <p>${c[1]} · ${c[2]}</p>
-<a href="${c[3]}" target="_blank" rel="noopener">رابط التحقق ↗</a>
+${c[3]?`<a href="${c[3]}" target="_blank" rel="noopener">رابط التحقق ↗</a>`:''}
 </div>
 `).join('');
 

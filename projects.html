@@ -64,7 +64,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:
 <nav class="m" id="nav">
 <a href="index.html#home">الرئيسية</a><a href="index.html#services">الخدمات</a><a href="index.html#about">من أنا؟</a><a href="index.html#work">أعمالي</a><a href="projects.html" class="on">تطبيقاتي</a><a href="index.html#certs">الشهادات</a><a href="index.html#contact">تواصل معي</a>
 </nav>
-<div class="tools"><button class="ic" id="th" aria-label="Theme"><i class="fa-solid fa-moon"></i></button><button class="ic" id="bg" aria-label="Menu"><i class="fa-solid fa-bars"></i></button></div>
+<div class="tools"><button class="ic" id="lg" aria-label="Language">EN</button><button class="ic" id="th" aria-label="Theme"><i class="fa-solid fa-moon"></i></button><button class="ic" id="bg" aria-label="Menu"><i class="fa-solid fa-bars"></i></button></div>
 </div></header>
 
 <section class="hero"><div class="w">
@@ -120,5 +120,48 @@ document.getElementById('bg').onclick=()=>document.getElementById('nav').classLi
 const up=document.getElementById('up');
 addEventListener('scroll',()=>up.style.display=scrollY>400?'flex':'none');
 up.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+   // ===== الترجمة =====
+const EN={
+'الرئيسية':'Home','الخدمات':'Services','من أنا؟':'About','أعمالي':'Work','تطبيقاتي':'Apps','الشهادات':'Certificates','تواصل معي':'Contact',
+'معرض التطبيقات':'Apps showcase','تطبيقاتي الرقمية':'My digital apps',
+'أدوات وتطبيقات ويب طوّرتها لتسهّل العمل في مجال تصميم الأسنان الرقمي. جرّبها مباشرة من هنا.':'Web tools and apps I built to make digital dentistry work easier. Try them right here.',
+'بعض التطبيقات قد تكون قيد التطوير والتجربة. إذا واجهتك مشكلة أو عندك اقتراح، تواصل معي.':'Some apps may still be in development or testing. If you run into a problem or have a suggestion, contact me.',
+'العودة إلى الصفحة الرئيسية':'Back to home',
+'© 2026 أحمد تاج الدين – جميع الحقوق محفوظة.':'© 2026 Ahmed Tageldein – All rights reserved.',
+'الكل':'All','تطبيق ويب':'Web App','أداة':'Tool',
+'متاح الآن':'Available now','قيد التطوير':'In development',
+'جرّب التطبيق':'Try the app','استكشف المشروع':'Explore project'
+};
+const lg=document.getElementById('lg');
+let lang='ar';
+const orig=new Map();
+function tr(){
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+  let n;
+  while(n=w.nextNode()){
+    if(n.parentNode.closest('script,style'))continue;
+    const k=n.nodeValue.trim();
+    if(lang==='en'){
+      if(EN[k]){orig.set(n,n.nodeValue);n.nodeValue=n.nodeValue.replace(k,EN[k]);}
+    }else if(orig.has(n)){
+      n.nodeValue=orig.get(n);orig.delete(n);
+    }
+  }
+}
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.documentElement.dir=l==='en'?'ltr':'rtl';
+  lg.textContent=l==='en'?'AR':'EN';
+  document.title=l==='en'?'My Apps | Ahmed Tageldein':'تطبيقاتي | أحمد تاج الدين';
+  tr();
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+lg.onclick=()=>setLang(lang==='ar'?'en':'ar');
+const _r=render;
+render=function(f){_r(f);if(lang==='en')tr();};
+let sl='ar';
+try{sl=localStorage.getItem('lang')||'ar'}catch(e){}
+if(sl==='en')setLang('en');
 </script>
 </body></html>
